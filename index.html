@@ -4,31 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda y Bautizo</title>
+    
+    <meta property="og:title" content="¡Boda y Bautizo! | Marcos y Sara">
+    <meta property="og:description" content="Nos hace muchísima ilusión celebrar juntos nuestra boda y el bautizo de Marcos. ¡Entra para ver todos los detalles y confirmar tu asistencia!">
+    <meta property="og:image" content="https://uve96.github.io/Boda/novios.PNG">
+    <meta property="og:url" content="https://uve96.github.io/Boda/">
+    <meta property="og:type" content="website">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
     <style>
         /* Animación de entrada suave */
         @keyframes aparecer {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
         body {
             font-family: 'Georgia', serif; 
-            background-color: #f7f3eb; /* Un fondo cálido tono champagne */
+            background-color: #f7f3eb; 
             color: #4a4a4a; 
             text-align: center;
             padding: 20px;
             padding-bottom: 100px;        
         }
+        
         .invitacion {
-            border: 1px solid #e6dace; /* Borde más fino y delicado */
+            border: 1px solid #e6dace; 
             padding: 40px 20px;
             max-width: 600px;
             margin: 20px auto;
             background-color: white;
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.08); /* Sombra elegante que la hace flotar */
-            animation: aparecer 1.5s ease-out; /* Activa la animación al abrir la página */
+            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.08); 
+            animation: aparecer 1.5s ease-out; 
         }
+        
         .titulo-evento {
             font-family: 'Playfair Display', serif;
             color: #8b7355;
@@ -37,6 +48,7 @@
             margin: 15px 0;
             line-height: 1.1;
         }
+
         .ampersand {
             font-family: 'Georgia', serif;
             color: #a38d72;
@@ -44,6 +56,7 @@
             font-style: normal;
             margin: 20px 0 5px 0;
         }
+
         .nombres-protagonistas {
             font-family: 'Playfair Display', serif;
             color: #a38d72;
@@ -52,17 +65,18 @@
             font-weight: 400;
             margin: 10px 0;
         }
-        /* Nuevo estilo para separar los momentos del día */
+
         .subtitulo-evento {
             font-family: 'Playfair Display', serif;
             color: #8b7355;
             font-size: 1.8em;
             font-weight: 600;
             margin: 35px 0 10px 0;
-            border-bottom: 1px solid #e6dace; /* Línea separadora elegante */
+            border-bottom: 1px solid #e6dace; 
             padding-bottom: 10px;
             display: inline-block;
         }
+
         p { 
             font-size: 1.15em; 
             line-height: 1.6; 
@@ -70,6 +84,7 @@
             padding: 0 10px;
             margin: 10px 0;
         }
+        
         .fecha { 
             font-size: 1.5em; 
             font-weight: bold; 
@@ -77,12 +92,14 @@
             margin: 35px 0 15px 0; 
             line-height: 1.5;
         }
+
         .hora {
             font-size: 1.2em;
             color: #a38d72;
             font-style: italic;
             margin-bottom: 15px;
         }
+
         .imagen-circular {
             width: 150px; 
             height: 150px; 
@@ -93,6 +110,7 @@
             margin: 15px auto; 
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
+
         .boton-confirmar {
             position: fixed; 
             bottom: 25px; 
@@ -108,7 +126,8 @@
             z-index: 1000; 
             transition: all 0.3s;
             white-space: nowrap; 
-        }  
+        }
+        
         .boton-confirmar:hover {
             background-color: #6b573f;
             transform: translateX(-50%) scale(1.05); 
@@ -116,30 +135,44 @@
     </style>
 </head>
 <body>
-    <div class="invitacion">    
+    <div class="invitacion">
+        
         <div class="titulo-evento">Nuestra Boda</div>
+
         <div class="nombres-protagonistas">Marcos y Sara</div>
+        
         <img src="novios.PNG" alt="Los Novios" class="imagen-circular">
+
         <div class="ampersand">&</div>
+
         <div class="titulo-evento">El Bautizo de</div>
+
         <div class="nombres-protagonistas">Marcos</div>
+
         <img src="bebe.jpeg" alt="El Bebé" class="imagen-circular">
+        
         <br>
+        
         <p>Nos hace muchísima ilusión reunir a las personas que más queremos para celebrar juntos estos dos momentos tan especiales para nuestra familia.</p>        
+        
         <div class="fecha">
             Sábado, 5 de Septiembre de 2026
         </div>  
+        
         <div class="subtitulo-evento">La Ceremonia</div>
         <div class="hora">a las 12:00 hrs</div>
         <p><strong>Lugar:</strong> Parroquia de San Juan Bautista, Trobajo del Camino</p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d734.2984597674921!2d-5.604871029552282!3d42.59363071622852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd379b84a0ecddbd%3A0xf532ce64ba45bcd4!2sParroquia%20de%20San%20Juan%20Bautista!5e0!3m2!1ses!2ses!4v1773254057121!5m2!1ses!2ses" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
         <div class="subtitulo-evento">La Celebración</div>
         <div class="hora">a las 14:00 hrs</div>
         <p><strong>Lugar:</strong> Finca El Cigarral, Cembranos</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.556872090223!2d-5.589711899999999!3d42.479712400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3786aa8c869f47%3A0x691a14437d182704!2sEl%20Cigarral%20de%20Cembranos!5e0!3m2!1ses!2ses!4v1773304682138!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <br><br>
+        <iframe src="https://maps.google.com/maps?q=Finca%20El%20Cigarral,%20Cembranos&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <br>
         <p>¡Esperamos contar contigo en este día tan especial!</p>
         <br><br>
+        
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScKszyyh4QzKtyKjFX-o4V_w5jmp2A9A5qLm-JJ340iLzKYpw/viewform?usp=header" target="_blank" class="boton-confirmar">Confirmar Asistencia</a>    
     </div>
 </body>
