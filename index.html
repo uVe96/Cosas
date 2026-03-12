@@ -143,6 +143,31 @@
             display: block;
         }
 
+        /* ESTILOS DE INFORMACIÓN EXTRA (Bus y Dress Code) */
+        .info-extra-caja {
+            margin: 40px 10px 20px 10px;
+        }
+        .info-item {
+            margin-bottom: 30px;
+        }
+        .icono-extra {
+            font-size: 2.2em;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .titulo-extra {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: #8b7355;
+            margin-bottom: 8px;
+        }
+        .texto-extra {
+            font-size: 1.05em;
+            color: #5a5a5a;
+            margin: 0;
+            padding: 0 15px;
+        }
+
         /* ESTILOS SECCIÓN DE REGALOS */
         .seccion-regalos {
             background-color: #fcfbf9;
@@ -213,19 +238,14 @@
     <div class="invitacion">
         
         <div class="titulo-evento">Nuestra Boda</div>
-
         <div class="nombres-protagonistas">Marcos y Sara</div>
-        
         <img src="novios.PNG" alt="Los Novios" class="imagen-circular">
 
         <div class="ampersand">&</div>
 
         <div class="titulo-evento">El Bautizo de</div>
-
         <div class="nombres-protagonistas">Marcos</div>
-
         <img src="bebe.jpeg" alt="El Bebé" class="imagen-circular">
-        
         <br>
         
         <p>Nos hace muchísima ilusión reunir a las personas que más queremos para celebrar juntos estos dos momentos tan especiales para nuestra familia.</p>        
@@ -263,6 +283,23 @@
         <p><strong>Lugar:</strong> Finca El Cigarral, Cembranos</p>
         <iframe src="https://maps.google.com/maps?q=Finca%20El%20Cigarral,%20Cembranos&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+        <div class="info-extra-caja">
+            
+            <div class="info-item">
+                <span class="icono-extra">🚌</span>
+                <div class="titulo-extra">Servicio de Autobús</div>
+                <p class="texto-extra">Para vuestra comodidad, pondremos a disposición un autobús que os llevará desde la iglesia hasta la finca, con regreso de madrugada. ¡Para que disfrutéis sin preocupaciones!</p>
+            </div>
+
+            <div class="info-item">
+                <span class="icono-extra">👔</span>
+                <div class="titulo-extra">Código de Vestimenta</div>
+                <p class="texto-extra">Formal / Traje oscuro y vestido largo o de cóctel.<br>
+                <i style="color: #a38d72; font-size: 0.9em; margin-top: 5px; display: block;">(Se ruega a las invitadas evitar el color blanco)</i></p>
+            </div>
+            
+        </div>
+
         <div class="seccion-regalos">
             <span class="icono-regalo">🎁</span>
             <p style="font-size: 1.05em; padding: 0;">El mejor regalo es poder compartir este día con vosotros. Pero si deseáis tener un detalle con nosotros, podéis hacerlo a través de este número de cuenta:</p>
@@ -276,7 +313,7 @@
         <p>¡Esperamos contar contigo en este día tan especial!</p>
         <br><br>
         
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScKszyyh4QzKtyKjFX-o4V_w5jmp2A9A5qLm-JJ340iLzKYpw/viewform?usp=publish-editor" target="_blank" class="boton-confirmar">Confirmar Asistencia</a>    
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScKszyyh4QzKtyKjFX-o4V_w5jmp2A9A5qLm-JJ340iLzKYpw/viewform?usp=header" target="_blank" class="boton-confirmar">Confirmar Asistencia</a>    
     </div>
 
     <script>
@@ -308,7 +345,6 @@
         // 2. COPIAR IBAN
         function copiarIBAN() {
             var ibanTexto = document.getElementById("numero-iban").innerText;
-            // Limpiamos los espacios para que se copie todo seguido
             var ibanLimpio = ibanTexto.replace(/\s/g, ''); 
             
             navigator.clipboard.writeText(ibanLimpio).then(function() {
@@ -317,7 +353,6 @@
                 btn.style.backgroundColor = "#8b7355";
                 btn.style.color = "white";
                 
-                // A los 3 segundos, el botón vuelve a la normalidad
                 setTimeout(function() {
                     btn.innerHTML = "📋 Copiar IBAN";
                     btn.style.backgroundColor = "transparent";
