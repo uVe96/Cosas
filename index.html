@@ -93,6 +93,24 @@
             line-height: 1.5;
         }
 
+        .hora {
+            font-size: 1.2em;
+            color: #a38d72;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .imagen-circular {
+            width: 150px; 
+            height: 150px; 
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 4px solid #f7f3eb; 
+            display: block; 
+            margin: 15px auto; 
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
         /* ESTILOS DE LA CUENTA ATRÁS */
         .contador-contenedor {
             display: flex;
@@ -125,22 +143,47 @@
             display: block;
         }
 
-        .hora {
-            font-size: 1.2em;
-            color: #a38d72;
-            font-style: italic;
-            margin-bottom: 15px;
+        /* ESTILOS SECCIÓN DE REGALOS */
+        .seccion-regalos {
+            background-color: #fcfbf9;
+            border: 1px solid #e6dace;
+            border-radius: 15px;
+            padding: 30px 20px;
+            margin: 40px auto 20px auto;
+            max-width: 90%;
+            box-shadow: 0 4px 10px rgba(139, 115, 85, 0.05);
         }
-
-        .imagen-circular {
-            width: 150px; 
-            height: 150px; 
-            object-fit: cover; 
-            border-radius: 50%; 
-            border: 4px solid #f7f3eb; 
-            display: block; 
-            margin: 15px auto; 
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        .icono-regalo {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .iban-caja {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #4a4a4a;
+            background-color: #f0eadd;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 20px 0;
+            letter-spacing: 1px;
+            word-break: break-all;
+        }
+        .boton-copiar {
+            background-color: transparent;
+            color: #8b7355;
+            border: 1px solid #8b7355;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+        }
+        .boton-copiar:hover {
+            background-color: #8b7355;
+            color: white;
         }
 
         .boton-confirmar {
@@ -220,6 +263,15 @@
         <p><strong>Lugar:</strong> Finca El Cigarral, Cembranos</p>
         <iframe src="https://maps.google.com/maps?q=Finca%20El%20Cigarral,%20Cembranos&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+        <div class="seccion-regalos">
+            <span class="icono-regalo">🎁</span>
+            <p style="font-size: 1.05em; padding: 0;">El mejor regalo es poder compartir este día con vosotros. Pero si deseáis tener un detalle con nosotros, podéis hacerlo a través de este número de cuenta:</p>
+            
+            <div class="iban-caja" id="numero-iban">ES12 3456 7890 1234 5678 9012</div>
+            
+            <button class="boton-copiar" onclick="copiarIBAN()" id="btn-copiar">📋 Copiar IBAN</button>
+        </div>
+
         <br>
         <p>¡Esperamos contar contigo en este día tan especial!</p>
         <br><br>
@@ -228,27 +280,22 @@
     </div>
 
     <script>
-        // Establecemos la fecha de la boda (5 de Septiembre de 2026 a las 12:00:00)
+        // 1. CUENTA ATRÁS
         const fechaBoda = new Date("Sep 5, 2026 12:00:00").getTime();
-
-        // Actualizamos el contador cada segundo
         const intervalo = setInterval(function() {
             const ahora = new Date().getTime();
             const distancia = fechaBoda - ahora;
 
-            // Cálculos matemáticos para días, horas, minutos y segundos
             const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
             const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-            // Mostramos los resultados en la página (añadiendo un cero si es menor de 10)
             document.getElementById("dias").innerHTML = dias;
             document.getElementById("horas").innerHTML = horas < 10 ? "0" + horas : horas;
             document.getElementById("minutos").innerHTML = minutos < 10 ? "0" + minutos : minutos;
             document.getElementById("segundos").innerHTML = segundos < 10 ? "0" + segundos : segundos;
 
-            // Si la cuenta atrás termina, ponemos todo a cero
             if (distancia < 0) {
                 clearInterval(intervalo);
                 document.getElementById("dias").innerHTML = "00";
@@ -257,6 +304,27 @@
                 document.getElementById("segundos").innerHTML = "00";
             }
         }, 1000);
+
+        // 2. COPIAR IBAN
+        function copiarIBAN() {
+            var ibanTexto = document.getElementById("numero-iban").innerText;
+            // Limpiamos los espacios para que se copie todo seguido
+            var ibanLimpio = ibanTexto.replace(/\s/g, ''); 
+            
+            navigator.clipboard.writeText(ibanLimpio).then(function() {
+                var btn = document.getElementById("btn-copiar");
+                btn.innerHTML = "✅ ¡Copiado!";
+                btn.style.backgroundColor = "#8b7355";
+                btn.style.color = "white";
+                
+                // A los 3 segundos, el botón vuelve a la normalidad
+                setTimeout(function() {
+                    btn.innerHTML = "📋 Copiar IBAN";
+                    btn.style.backgroundColor = "transparent";
+                    btn.style.color = "#8b7355";
+                }, 3000);
+            });
+        }
     </script>
 </body>
 </html>
