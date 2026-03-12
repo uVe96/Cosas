@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* Animación de entrada suave */
+        /* Animación de entrada inicial de la tarjeta completa */
         @keyframes aparecer {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -111,6 +111,19 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
 
+        /* --------------------------------------------------- */
+        /* NUEVAS CLASES PARA EL EFECTO SCROLL                 */
+        /* --------------------------------------------------- */
+        .animar-scroll {
+            opacity: 0; /* Empieza invisible */
+            transform: translateY(40px); /* Empieza un poco más abajo */
+            transition: all 0.8s ease-out; /* La suavidad y duración del efecto */
+        }
+        .animar-scroll.visible {
+            opacity: 1; /* Se vuelve totalmente visible */
+            transform: translateY(0); /* Sube a su posición original */
+        }
+
         /* ESTILOS DE LA CUENTA ATRÁS */
         .contador-contenedor {
             display: flex;
@@ -143,7 +156,7 @@
             display: block;
         }
 
-        /* ESTILOS DE INFORMACIÓN EXTRA (Bus y Dress Code) */
+        /* ESTILOS DE INFORMACIÓN EXTRA */
         .info-extra-caja {
             margin: 40px 10px 20px 10px;
         }
@@ -254,7 +267,7 @@
             Sábado, 5 de Septiembre de 2026
         </div>  
 
-        <div class="contador-contenedor">
+        <div class="contador-contenedor animar-scroll">
             <div class="contador-item">
                 <span class="contador-numero" id="dias">00</span>
                 <span class="contador-label">Días</span>
@@ -273,18 +286,21 @@
             </div>
         </div>
         
-        <div class="subtitulo-evento">La Ceremonia</div>
-        <div class="hora">a las 12:00 hrs</div>
-        <p><strong>Lugar:</strong> Parroquia de San Juan Bautista, Trobajo del Camino</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d734.2984597674921!2d-5.604871029552282!3d42.59363071622852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd379b84a0ecddbd%3A0xf532ce64ba45bcd4!2sParroquia%20de%20San%20Juan%20Bautista!5e0!3m2!1ses!2ses!4v1773254057121!5m2!1ses!2ses" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="animar-scroll">
+            <div class="subtitulo-evento">La Ceremonia</div>
+            <div class="hora">a las 12:00 hrs</div>
+            <p><strong>Lugar:</strong> Parroquia de San Juan Bautista, Trobajo del Camino</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d734.2984597674921!2d-5.604871029552282!3d42.59363071622852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd379b84a0ecddbd%3A0xf532ce64ba45bcd4!2sParroquia%20de%20San%20Juan%20Bautista!5e0!3m2!1ses!2ses!4v1773254057121!5m2!1ses!2ses" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
         
-        <div class="subtitulo-evento">La Celebración</div>
-        <div class="hora">a las 14:00 hrs</div>
-        <p><strong>Lugar:</strong> Finca El Cigarral, Cembranos</p>
-        <iframe src="https://maps.google.com/maps?q=Finca%20El%20Cigarral,%20Cembranos&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="animar-scroll">
+            <div class="subtitulo-evento">La Celebración</div>
+            <div class="hora">a las 14:00 hrs</div>
+            <p><strong>Lugar:</strong> Finca El Cigarral, Cembranos</p>
+            <iframe src="https://maps.google.com/maps?q=Finca%20El%20Cigarral,%20Cembranos&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
 
-        <div class="info-extra-caja">
-            
+        <div class="info-extra-caja animar-scroll">
             <div class="info-item">
                 <span class="icono-extra">🚌</span>
                 <div class="titulo-extra">Servicio de Autobús</div>
@@ -297,20 +313,17 @@
                 <p class="texto-extra">Formal / Traje oscuro y vestido largo o de cóctel.<br>
                 <i style="color: #a38d72; font-size: 0.9em; margin-top: 5px; display: block;">(Se ruega a las invitadas evitar el color blanco)</i></p>
             </div>
-            
         </div>
 
-        <div class="seccion-regalos">
+        <div class="seccion-regalos animar-scroll">
             <span class="icono-regalo">🎁</span>
             <p style="font-size: 1.05em; padding: 0;">El mejor regalo es poder compartir este día con vosotros. Pero si deseáis tener un detalle con nosotros, podéis hacerlo a través de este número de cuenta:</p>
-            
             <div class="iban-caja" id="numero-iban">ES12 3456 7890 1234 5678 9012</div>
-            
             <button class="boton-copiar" onclick="copiarIBAN()" id="btn-copiar">📋 Copiar IBAN</button>
         </div>
 
         <br>
-        <p>¡Esperamos contar contigo en este día tan especial!</p>
+        <p class="animar-scroll">¡Esperamos contar contigo en este día tan especial!</p>
         <br><br>
         
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScKszyyh4QzKtyKjFX-o4V_w5jmp2A9A5qLm-JJ340iLzKYpw/viewform?usp=header" target="_blank" class="boton-confirmar">Confirmar Asistencia</a>    
@@ -360,6 +373,26 @@
                 }, 3000);
             });
         }
+
+        // 3. EFECTO DE APARICIÓN AL HACER SCROLL
+        document.addEventListener("DOMContentLoaded", function() {
+            // Configuramos el 'vigilante'
+            const observador = new IntersectionObserver((entradas) => {
+                entradas.forEach((entrada) => {
+                    // Si el elemento entra en la pantalla...
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add('visible'); // Le añade la clase para que aparezca
+                        observador.unobserve(entrada.target); // Deja de vigilarlo para que no se anime dos veces
+                    }
+                });
+            }, {
+                threshold: 0.1 // Se dispara cuando el 10% del elemento asoma por abajo
+            });
+
+            // Le decimos al vigilante qué elementos tiene que observar
+            const elementosOcultos = document.querySelectorAll('.animar-scroll');
+            elementosOcultos.forEach((el) => observador.observe(el));
+        });
     </script>
 </body>
 </html>
