@@ -720,15 +720,15 @@ END:VCALENDAR`;
         
         // 8. TEMPORIZADOR DE LA PANTALLA DE CARGA
         window.addEventListener('load', function() {
-            // Espera 2 segundos (2000 milisegundos) y desvanece la pantalla
+            // Ahora espera solo medio segundo (500) antes de empezar a desaparecer
             setTimeout(function() {
                 var pantallaCarga = document.getElementById('pantalla-carga');
                 pantallaCarga.classList.add('ocultar-carga');
                 
                 // Devuelve el scroll a la página
                 document.body.classList.remove('sin-scroll');
-            }, 2000); 
-        });    
+            }, 500);
+        });   
     </script>
 </body>
 </html>
