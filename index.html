@@ -132,3 +132,403 @@
             padding: 10px 5px; 
             flex: 1; 
             box-shadow: 0 4px 8px rgba(139, 115, 85, 0.05);
+        }
+        .contador-numero {
+            display: block;
+            font-size: 1.6em; 
+            font-weight: bold;
+            color: #8b7355;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        .contador-label {
+            font-size: 0.7em;
+            color: #a38d72;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* ESTILOS DEL CARRUSEL DE FOTOS */
+        .carrusel-contenedor {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto 40px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.15);
+            border: 4px solid #f7f3eb;
+        }
+        .carrusel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carrusel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carrusel-slide img {
+            width: 100%;
+            height: 350px; 
+            object-fit: cover;
+            display: block;
+        }
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #8b7355;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2em;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+        .carrusel-btn:hover { background-color: white; }
+        .carrusel-btn.prev { left: 10px; }
+        .carrusel-btn.next { right: 10px; }
+        
+        .carrusel-puntos {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .punto {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        .punto.activo { background-color: white; }
+
+        /* ESTILOS DE INFORMACIÓN EXTRA */
+        .info-extra-caja { margin: 40px 10px 20px 10px; }
+        .info-item { margin-bottom: 30px; }
+        .icono-extra { font-size: 2.2em; margin-bottom: 5px; display: block; }
+        .titulo-extra { font-family: 'Playfair Display', serif; font-size: 1.5em; color: #8b7355; margin-bottom: 8px; }
+        .texto-extra { font-size: 1.05em; color: #5a5a5a; margin: 0; padding: 0 15px; }
+
+        /* ESTILOS SECCIÓN DE REGALOS */
+        .seccion-regalos {
+            background-color: #fcfbf9;
+            border: 1px solid #e6dace;
+            border-radius: 15px;
+            padding: 30px 20px;
+            margin: 40px auto 20px auto;
+            max-width: 90%;
+            box-shadow: 0 4px 10px rgba(139, 115, 85, 0.05);
+        }
+        .icono-regalo { font-size: 2.2em; margin-bottom: 15px; display: block; }
+        .iban-caja {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #4a4a4a;
+            background-color: #f0eadd;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 20px 0;
+            letter-spacing: 1px;
+            word-break: break-all;
+        }
+        .boton-copiar {
+            background-color: transparent;
+            color: #8b7355;
+            border: 1px solid #8b7355;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+        }
+        .boton-copiar:hover { background-color: #8b7355; color: white; }
+
+        /* ESTILOS DEL MENÚ DE NAVEGACIÓN */
+        .menu-navegacion {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0px 0 15px 0; 
+            padding: 0 10px;
+        }
+        
+        .menu-navegacion a {
+            text-decoration: none;
+            color: #8b7355;
+            border: 1px solid #e6dace;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            background-color: #fcfbf9;
+            font-family: 'Playfair Display', serif;
+        }
+        .menu-navegacion a:hover, .menu-navegacion a:active {
+            background-color: #8b7355;
+            color: white;
+        }    
+
+        /* ---------------------------------------------------- */
+        /* BOTÓN FLOTANTE (Ahora empieza oculto)                */
+        /* ---------------------------------------------------- */
+        .boton-confirmar {
+            position: fixed; 
+            bottom: -100px; /* Empieza escondido por debajo de la pantalla */
+            opacity: 0; /* Totalmente transparente */
+            left: 50%; 
+            transform: translateX(-50%); 
+            background-color: #8b7355; 
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 30px; 
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            z-index: 1000; 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave con un poco de rebote */
+            white-space: nowrap; 
+        }
+        
+        /* Esta clase se añade con JavaScript al hacer scroll */
+        .boton-confirmar.mostrar {
+            bottom: 25px; /* Sube a su sitio */
+            opacity: 1; /* Se hace visible */
+        }
+
+        .boton-confirmar:hover {
+            background-color: #6b573f;
+            transform: translateX(-50%) scale(1.05); 
+        }   
+    </style>
+</head>
+<body>
+    <div class="invitacion">
+        <div class="menu-navegacion">
+            <a href="#ceremonia">Ceremonia</a>
+            <a href="#celebracion">Banquete</a>
+            <a href="#momentos">Fotos</a>
+            <a href="#detalles">Información</a>
+            <a href="#regalos">Regalos</a>
+        </div>        
+        <div class="titulo-evento">Nuestra Boda</div>
+        <div class="nombres-protagonistas">Marcos y Sara</div>
+        <img src="novios.PNG" alt="Los Novios" class="imagen-circular">
+
+        <div class="ampersand">&</div>
+
+        <div class="titulo-evento">El Bautizo de</div>
+        <div class="nombres-protagonistas">Marcos</div>
+        <img src="bebe.jpeg" alt="El Bebé" class="imagen-circular">
+        <br>
+        
+        <p>Nos hace muchísima ilusión reunir a las personas que más queremos para celebrar juntos estos dos momentos tan especiales para nuestra familia.</p>        
+        
+        <div class="fecha">
+            Sábado, 5 de Septiembre de 2026
+        </div>  
+
+        <div class="contador-contenedor animar-scroll">
+            <div class="contador-item">
+                <span class="contador-numero" id="dias">00</span>
+                <span class="contador-label">Días</span>
+            </div>
+            <div class="contador-item">
+                <span class="contador-numero" id="horas">00</span>
+                <span class="contador-label">Hrs</span>
+            </div>
+            <div class="contador-item">
+                <span class="contador-numero" id="minutos">00</span>
+                <span class="contador-label">Min</span>
+            </div>
+            <div class="contador-item">
+                <span class="contador-numero" id="segundos">00</span>
+                <span class="contador-label">Seg</span>
+            </div>
+        </div>
+        
+        <div class="animar-scroll" id="ceremonia">
+            <div class="subtitulo-evento">La Ceremonia</div>
+            <div class="hora">a las 12:00 hrs</div>
+            <p><strong>Lugar:</strong> Parroquia de San Juan Bautista, Trobajo del Camino</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d734.2984597674921!2d-5.604871029552282!3d42.59363071622852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd379b84a0ecddbd%3A0xf532ce64ba45bcd4!2sParroquia%20de%20San%20Juan%20Bautista!5e0!3m2!1ses!2ses!4v1773254057121!5m2!1ses!2ses" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
+        <div class="animar-scroll" id="celebracion">
+            <div class="subtitulo-evento">La Celebración</div>
+            <div class="hora">a las 14:00 hrs</div>
+            <p><strong>Lugar:</strong> Finca El Cigarral, Cembranos</p>
+            <iframe src="https://maps.google.com/maps?q=Finca%20El%20Cigarral,%20Cembranos&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="animar-scroll" id="momentos">
+            <div class="subtitulo-evento">Nuestros Momentos</div>
+            <div class="carrusel-contenedor">
+                <div class="carrusel-slides" id="carrusel">
+                    <div class="carrusel-slide"><img src="galeria1.jpg" alt="Momento 1"></div>
+                    <div class="carrusel-slide"><img src="galeria2.jpg" alt="Momento 2"></div>
+                    <div class="carrusel-slide"><img src="galeria3.jpg" alt="Momento 3"></div>
+                </div>
+                <button class="carrusel-btn prev" onclick="moverCarrusel(-1)">❮</button>
+                <button class="carrusel-btn next" onclick="moverCarrusel(1)">❯</button>
+                <div class="carrusel-puntos">
+                    <span class="punto activo" onclick="irSlide(0)"></span>
+                    <span class="punto" onclick="irSlide(1)"></span>
+                    <span class="punto" onclick="irSlide(2)"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-extra-caja animar-scroll" id="detalles">
+            
+            <div class="info-item">
+                <span class="icono-extra">🚌</span>
+                <div class="titulo-extra">Servicio de Autobús</div>
+                <p class="texto-extra">Para vuestra comodidad, pondremos a disposición un autobús que os llevará desde la iglesia hasta la finca, con regreso de madrugada. ¡Para que disfrutéis sin preocupaciones!</p>
+            </div>
+
+            <div class="info-item">
+                <span class="icono-extra">👔</span>
+                <div class="titulo-extra">Código de Vestimenta</div>
+                <p class="texto-extra">Formal / Traje oscuro y vestido largo o de cóctel.<br>
+                <i style="color: #a38d72; font-size: 0.9em; margin-top: 5px; display: block;">(Se ruega a las invitadas evitar el color blanco)</i></p>
+            </div>
+
+            <div class="info-item">
+                <span class="icono-extra">🍽️</span>
+                <div class="titulo-extra">Alergias y Menús Especiales</div>
+                <p class="texto-extra">Rogamos nos indiquéis en el formulario de confirmación si tenéis alguna alergia, intolerancia o si necesitáis un menú especial (vegetariano, vegano, infantil...).</p>
+            </div>
+
+        </div>
+
+        <div class="seccion-regalos animar-scroll" id="regalos">
+            <span class="icono-regalo">🎁</span>
+            <p style="font-size: 1.05em; padding: 0;">El mejor regalo es poder compartir este día con vosotros. Pero si deseáis tener un detalle con nosotros, podéis hacerlo a través de este número de cuenta:</p>
+            <div class="iban-caja" id="numero-iban">ES12 3456 7890 1234 5678 9012</div>
+            <button class="boton-copiar" onclick="copiarIBAN()" id="btn-copiar">📋 Copiar IBAN</button>
+        </div>
+
+        <br>
+        <p class="animar-scroll">¡Esperamos contar contigo en este día tan especial!</p>
+        <br><br>
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScKszyyh4QzKtyKjFX-o4V_w5jmp2A9A5qLm-JJ340iLzKYpw/viewform?usp=header" target="_blank" class="boton-confirmar" id="btn-confirmar">Confirmar Asistencia</a>    
+    </div>
+
+    <script>
+        // 1. CUENTA ATRÁS
+        const fechaBoda = new Date("Sep 5, 2026 12:00:00").getTime();
+        const intervalo = setInterval(function() {
+            const ahora = new Date().getTime();
+            const distancia = fechaBoda - ahora;
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById("dias").innerHTML = dias;
+            document.getElementById("horas").innerHTML = horas < 10 ? "0" + horas : horas;
+            document.getElementById("minutos").innerHTML = minutos < 10 ? "0" + minutos : minutos;
+            document.getElementById("segundos").innerHTML = segundos < 10 ? "0" + segundos : segundos;
+
+            if (distancia < 0) {
+                clearInterval(intervalo);
+                document.getElementById("dias").innerHTML = "00";
+                document.getElementById("horas").innerHTML = "00";
+                document.getElementById("minutos").innerHTML = "00";
+                document.getElementById("segundos").innerHTML = "00";
+            }
+        }, 1000);
+
+        // 2. COPIAR IBAN
+        function copiarIBAN() {
+            var ibanTexto = document.getElementById("numero-iban").innerText;
+            var ibanLimpio = ibanTexto.replace(/\s/g, ''); 
+            
+            navigator.clipboard.writeText(ibanLimpio).then(function() {
+                var btn = document.getElementById("btn-copiar");
+                btn.innerHTML = "✅ ¡Copiado!";
+                btn.style.backgroundColor = "#8b7355";
+                btn.style.color = "white";
+                
+                setTimeout(function() {
+                    btn.innerHTML = "📋 Copiar IBAN";
+                    btn.style.backgroundColor = "transparent";
+                    btn.style.color = "#8b7355";
+                }, 3000);
+            });
+        }
+
+        // 3. EFECTO DE APARICIÓN AL HACER SCROLL (Elementos normales)
+        document.addEventListener("DOMContentLoaded", function() {
+            const observador = new IntersectionObserver((entradas) => {
+                entradas.forEach((entrada) => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add('visible'); 
+                        observador.unobserve(entrada.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1 
+            });
+
+            const elementosOcultos = document.querySelectorAll('.animar-scroll');
+            elementosOcultos.forEach((el) => observador.observe(el));
+        });
+
+        // 4. LÓGICA DEL CARRUSEL DE FOTOS
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carrusel-slide');
+        const puntos = document.querySelectorAll('.punto');
+        const carrusel = document.getElementById('carrusel');
+        const totalSlides = slides.length;
+
+        function actualizarCarrusel() {
+            carrusel.style.transform = `translateX(-${slideIndex * 100}%)`;
+            puntos.forEach(p => p.classList.remove('activo'));
+            puntos[slideIndex].classList.add('activo');
+        }
+
+        function moverCarrusel(step) {
+            slideIndex += step;
+            if (slideIndex >= totalSlides) slideIndex = 0;
+            if (slideIndex < 0) slideIndex = totalSlides - 1;
+            actualizarCarrusel();
+        }
+
+        function irSlide(n) {
+            slideIndex = n;
+            actualizarCarrusel();
+        }
+
+        // 5. EFECTO DEL BOTÓN FLOTANTE AL HACER SCROLL (NUEVO)
+        window.addEventListener('scroll', function() {
+            var botonConfirmar = document.getElementById('btn-confirmar');
+            // Si el usuario baja más de 350 píxeles, aparece el botón
+            if (window.scrollY > 350) {
+                botonConfirmar.classList.add('mostrar');
+            } else {
+                botonConfirmar.classList.remove('mostrar');
+            }
+        });
+    </script>
+</body>
+</html>
