@@ -719,17 +719,16 @@ END:VCALENDAR`;
             estaSonando = !estaSonando;
         }  
         
-        // 8. TEMPORIZADOR DE LA PANTALLA DE CARGA
-        window.addEventListener('load', function() {
-            // Ahora espera solo medio segundo (500) antes de empezar a desaparecer
-            setTimeout(function() {
-                var pantallaCarga = document.getElementById('pantalla-carga');
+        // 8. TEMPORIZADOR DE LA PANTALLA DE CARGA (Independiente de los mapas)
+        setTimeout(function() {
+            var pantallaCarga = document.getElementById('pantalla-carga');
+            if (pantallaCarga) {
                 pantallaCarga.classList.add('ocultar-carga');
-                
                 // Devuelve el scroll a la página
                 document.body.classList.remove('sin-scroll');
-            }, 500);
-        });   
+            }
+        }, 1500); // 1.5 segundos exactos sin importar lo que tarden los mapas
+        
     </script>
 </body>
 </html>
