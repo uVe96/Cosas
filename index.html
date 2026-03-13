@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Animación de entrada inicial de la tarjeta completa */
+        /* Animación de entrada inicial */
         @keyframes aparecer {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -26,15 +26,27 @@
             padding: 0px 15px 100px 15px; 
         }
         
+        /* TARJETA PRINCIPAL (PORTADA) */
         .invitacion {
             border: 1px solid #e6dace; 
-            padding: 10px 20px 20px 20px; 
+            padding: 10px 20px 30px 20px; 
             max-width: 600px;
-            margin: 0px auto 20px auto; 
+            margin: 0px auto 25px auto; /* 25px de separación por abajo */
             background-color: white;
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.08); 
+            box-shadow: 0 10px 25px rgba(139, 115, 85, 0.08); 
             animation: aparecer 1.5s ease-out; 
+        }
+
+        /* NUEVAS TARJETAS INDIVIDUALES PARA CADA SECCIÓN */
+        .tarjeta {
+            border: 1px solid #e6dace; 
+            padding: 30px 20px; 
+            max-width: 600px;
+            margin: 0px auto 25px auto; /* Separación entre bloques */
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(139, 115, 85, 0.08); 
         }
         
         .titulo-evento {
@@ -68,7 +80,7 @@
             color: #8b7355;
             font-size: 1.8em;
             font-weight: 600;
-            margin: 35px 0 10px 0;
+            margin: 0px 0 10px 0;
             border-bottom: 1px solid #e6dace; 
             padding-bottom: 10px;
             display: inline-block;
@@ -124,7 +136,7 @@
             display: flex;
             justify-content: center;
             gap: 8px; 
-            margin: 20px 15px 35px 15px; 
+            margin: 20px 15px 10px 15px; 
         }
         .contador-item {
             background-color: #fcfbf9;
@@ -155,10 +167,9 @@
         .carrusel-contenedor {
             position: relative;
             max-width: 100%;
-            margin: 20px auto 40px auto;
+            margin: 20px auto 10px auto;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.15);
             border: 4px solid #f7f3eb;
         }
         .carrusel-slides {
@@ -217,23 +228,14 @@
         }
         .punto.activo { background-color: white; }
 
-        /* ESTILOS DE INFORMACIÓN EXTRA (Actualizados para iconos) */
-        .info-extra-caja { margin: 40px 10px 20px 10px; }
+        /* ESTILOS DE INFORMACIÓN EXTRA */
         .info-item { margin-bottom: 30px; }
+        .info-item:last-child { margin-bottom: 0; }
         .icono-extra { font-size: 2em; margin-bottom: 15px; display: block; color: #a38d72; }
         .titulo-extra { font-family: 'Playfair Display', serif; font-size: 1.5em; color: #8b7355; margin-bottom: 8px; }
         .texto-extra { font-size: 1.05em; color: #5a5a5a; margin: 0; padding: 0 15px; }
 
-        /* ESTILOS SECCIÓN DE REGALOS (Actualizados para iconos) */
-        .seccion-regalos {
-            background-color: #fcfbf9;
-            border: 1px solid #e6dace;
-            border-radius: 15px;
-            padding: 30px 20px;
-            margin: 40px auto 20px auto;
-            max-width: 90%;
-            box-shadow: 0 4px 10px rgba(139, 115, 85, 0.05);
-        }
+        /* ESTILOS SECCIÓN DE REGALOS */
         .icono-regalo { font-size: 2.2em; margin-bottom: 15px; display: block; color: #a38d72; }
         .iban-caja {
             font-family: 'Courier New', Courier, monospace;
@@ -260,26 +262,8 @@
         }
         .boton-copiar:hover { background-color: #8b7355; color: white; }
 
-        /* ESTILOS BOTÓN CALENDARIO */
-        .boton-calendario {
-            background-color: transparent;
-            color: #8b7355;
-            border: 1px solid #8b7355;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Georgia', serif;
-            margin-bottom: 25px; 
-        }
-        .boton-calendario:hover { 
-            background-color: #8b7355; 
-            color: white; 
-        }
-
-        /* ESTILOS BOTÓN MAPAS (GPS) */
-        .boton-mapa {
+        /* ESTILOS BOTONES GLOBALES */
+        .boton-calendario, .boton-mapa {
             display: inline-block;
             background-color: #fcfbf9;
             color: #8b7355;
@@ -288,17 +272,18 @@
             border-radius: 20px;
             font-size: 0.9em;
             text-decoration: none;
+            cursor: pointer;
             transition: all 0.3s;
             font-family: 'Georgia', serif;
-            margin-bottom: 25px; /* Separación con la siguiente sección */
+            margin-bottom: 10px; 
             box-shadow: 0 2px 5px rgba(139, 115, 85, 0.05);
         }
-        .boton-mapa:hover { 
+        .boton-calendario:hover, .boton-mapa:hover { 
             background-color: #8b7355; 
             color: white; 
             border-color: #8b7355;
         }
-        
+
         /* ESTILOS DEL MENÚ DE NAVEGACIÓN */
         .menu-navegacion {
             display: flex;
@@ -308,7 +293,6 @@
             margin: 0px 0 15px 0; 
             padding: 0 10px;
         }
-        
         .menu-navegacion a {
             text-decoration: none;
             color: #8b7355;
@@ -325,7 +309,7 @@
             color: white;
         }    
 
-        /* BOTÓN FLOTANTE OCULTO INICIALMENTE */
+        /* BOTÓN FLOTANTE CONFIRMAR */
         .boton-confirmar {
             position: fixed; 
             bottom: -100px; 
@@ -343,12 +327,10 @@
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
             white-space: nowrap; 
         }
-        
         .boton-confirmar.mostrar {
             bottom: 25px; 
             opacity: 1; 
         }
-
         .boton-confirmar:hover {
             background-color: #6b573f;
             transform: translateX(-50%) scale(1.05); 
@@ -357,7 +339,7 @@
         /* ESTILOS BOTÓN MÚSICA */
         .boton-musica {
             position: fixed;
-            bottom: 30px; /* <--- CAMBIAMOS TOP POR BOTTOM */
+            bottom: 30px; 
             right: 20px;
             background-color: rgba(255, 255, 255, 0.95);
             color: #8b7355;
@@ -379,69 +361,41 @@
             background-color: #8b7355;
             color: white;
         }
-        /* Animación de tocadiscos girando */
         .animacion-girar {
             animation: girar 4s linear infinite;
             background-color: #8b7355;
             color: white;
             border-color: #8b7355;
         }
-        @keyframes girar {
-            100% { transform: rotate(360deg); }
-        }    
+        @keyframes girar { 100% { transform: rotate(360deg); } }    
         
         /* ESTILOS DE LA PANTALLA DE CARGA (SPLASH SCREEN) */
         #pantalla-carga {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-color: #f7f3eb; 
             z-index: 9999; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* Cambiamos 0.8s por 0.4s para que desaparezca el doble de rápido */
+            display: flex; align-items: center; justify-content: center;
             transition: opacity 0.4s ease-out, visibility 0.4s ease-out; 
         }
-        
         .carga-contenido {
             text-align: center;
             animation: latido 2s infinite ease-in-out;
         }
-        
         .carga-iniciales {
             font-family: 'Playfair Display', serif;
-            color: #8b7355;
-            font-size: 5em;
-            font-weight: 600;
-            margin-bottom: 10px;
+            color: #8b7355; font-size: 5em; font-weight: 600; margin-bottom: 10px;
         }
-        
         .carga-fecha {
             font-family: 'Georgia', serif;
-            color: #a38d72;
-            font-size: 1.1em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            color: #a38d72; font-size: 1.1em; letter-spacing: 2px; text-transform: uppercase;
         }
-        
         @keyframes latido {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
-        
-        /* Esta clase hará que desaparezca suavemente */
-        .ocultar-carga {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        /* Bloquea el scroll mientras está cargando */
-        body.sin-scroll {
-            overflow: hidden;
-        }    
+        .ocultar-carga { opacity: 0; visibility: hidden; }
+        body.sin-scroll { overflow: hidden; }    
     </style>
 </head>
 <body class="sin-scroll">
@@ -453,13 +407,14 @@
         </div>
     </div>
 
-        <div class="invitacion">
-        <audio id="musica-fondo" loop>
-            <source src="musica.mp3" type="audio/mpeg">
-        </audio>
-        <button class="boton-musica" id="btn-musica" onclick="toggleMusica()">
-            <i class="fa-solid fa-music"></i>
-        </button>        
+    <audio id="musica-fondo" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+    <button class="boton-musica" id="btn-musica" onclick="toggleMusica()">
+        <i class="fa-solid fa-music"></i>
+    </button>        
+
+    <div class="invitacion">
         <div class="menu-navegacion">
             <a href="#ceremonia">Ceremonia</a>
             <a href="#celebracion">Banquete</a>
@@ -467,6 +422,7 @@
             <a href="#detalles">Información</a>
             <a href="#regalos">Regalos</a>
         </div>        
+        
         <div class="titulo-evento">Nuestra Boda</div>
         <div class="nombres-protagonistas">Marcos y Sara</div>
         <img src="novios.PNG" alt="Los Novios" class="imagen-circular">
@@ -480,13 +436,11 @@
         
         <p>Nos hace muchísima ilusión reunir a las personas que más queremos para celebrar juntos estos dos momentos tan especiales para nuestra familia.</p>        
         
-        <div class="fecha">
-            Sábado, 5 de Septiembre de 2026
-        </div>  
+        <div class="fecha">Sábado, 5 de Septiembre de 2026</div>  
 
         <button class="boton-calendario" onclick="descargarCalendario()"><i class="fa-regular fa-calendar-plus"></i> Añadir a mi Calendario</button>
 
-        <div class="contador-contenedor animar-scroll">
+        <div class="contador-contenedor">
             <div class="contador-item">
                 <span class="contador-numero" id="dias">00</span>
                 <span class="contador-label">Días</span>
@@ -504,80 +458,69 @@
                 <span class="contador-label">Seg</span>
             </div>
         </div>
-        
-        <div class="animar-scroll" id="ceremonia">
-            <div class="subtitulo-evento">La Ceremonia</div>
-            <div class="hora">a las 12:00 hrs</div>
-            <p><strong>Lugar:</strong> Parroquia de San Juan Bautista, Trobajo del Camino</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d734.2984597674921!2d-5.604871029552282!3d42.59363071622852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd379b84a0ecddbd%3A0xf532ce64ba45bcd4!2sParroquia%20de%20San%20Juan%20Bautista!5e0!3m2!1ses!2ses!4v1773254057121!5m2!1ses!2ses" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Parroquia+de+San+Juan+Bautista,+Trobajo+del+Camino" target="_blank" class="boton-mapa"><i class="fa-solid fa-location-dot"></i> Cómo llegar a la Iglesia</a>
-        </div>
-    
-        <div class="animar-scroll" id="celebracion">
-            <div class="subtitulo-evento">La Celebración</div>
-            <div class="hora">a las 14:00 hrs</div>
-            <p><strong>Lugar:</strong> Finca El Cigarral, Cembranos</p>
-            <iframe src="https://maps.google.com/maps?q=Finca%20El%20Cigarral,%20Cembranos&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Finca+El+Cigarral,+Cembranos" target="_blank" class="boton-mapa"><i class="fa-solid fa-location-dot"></i> Cómo llegar a El Cigarral</a>
-        </div>
-
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Finca+El+Cigarral,+Cembranos" target="_blank" class="boton-mapa"><i class="fa-solid fa-location-dot"></i> Cómo llegar a El Cigarral</a>
-        </div>
-    
-        <div class="animar-scroll" id="momentos">
-            <div class="subtitulo-evento">Nuestros Momentos</div>
-            <div class="carrusel-contenedor">
-                <div class="carrusel-slides" id="carrusel">
-                    <div class="carrusel-slide"><img src="galeria1.jpg" alt="Momento 1"></div>
-                    <div class="carrusel-slide"><img src="galeria2.jpg" alt="Momento 2"></div>
-                    <div class="carrusel-slide"><img src="galeria3.jpg" alt="Momento 3"></div>
-                </div>
-                <button class="carrusel-btn prev" onclick="moverCarrusel(-1)">❮</button>
-                <button class="carrusel-btn next" onclick="moverCarrusel(1)">❯</button>
-                <div class="carrusel-puntos">
-                    <span class="punto activo" onclick="irSlide(0)"></span>
-                    <span class="punto" onclick="irSlide(1)"></span>
-                    <span class="punto" onclick="irSlide(2)"></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="info-extra-caja animar-scroll" id="detalles">
-            
-            <div class="info-item">
-                <i class="fa-solid fa-bus icono-extra"></i>
-                <div class="titulo-extra">Servicio de Autobús</div>
-                <p class="texto-extra">Para vuestra comodidad, pondremos a disposición un autobús que os llevará desde la iglesia hasta la finca, con regreso de madrugada. ¡Para que disfrutéis sin preocupaciones!</p>
-            </div>
-
-            <div class="info-item">
-                <i class="fa-solid fa-user-tie icono-extra"></i>
-                <div class="titulo-extra">Código de Vestimenta</div>
-                <p class="texto-extra">Formal / Traje oscuro y vestido largo o de cóctel.<br>
-                <i style="color: #a38d72; font-size: 0.9em; margin-top: 5px; display: block;">(Se ruega a las invitadas evitar el color blanco)</i></p>
-            </div>
-
-            <div class="info-item">
-                <i class="fa-solid fa-utensils icono-extra"></i>
-                <div class="titulo-extra">Alergias y Menús Especiales</div>
-                <p class="texto-extra">Rogamos nos indiquéis en el formulario de confirmación si tenéis alguna alergia, intolerancia o si necesitáis un menú especial (vegetariano, vegano, infantil...).</p>
-            </div>
-
-        </div>
-
-        <div class="seccion-regalos animar-scroll" id="regalos">
-            <i class="fa-solid fa-gift icono-regalo"></i>
-            <p style="font-size: 1.05em; padding: 0;">El mejor regalo es poder compartir este día con vosotros. Pero si deseáis tener un detalle con nosotros, podéis hacerlo a través de este número de cuenta:</p>
-            <div class="iban-caja" id="numero-iban">ES12 3456 7890 1234 5678 9012</div>
-            <button class="boton-copiar" onclick="copiarIBAN()" id="btn-copiar"><i class="fa-regular fa-copy"></i> Copiar IBAN</button>
-        </div>
-
-        <br>
-        <p class="animar-scroll">¡Esperamos contar contigo en este día tan especial!</p>
-        <br><br>
-        
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScKszyyh4QzKtyKjFX-o4V_w5jmp2A9A5qLm-JJ340iLzKYpw/viewform?usp=header" target="_blank" class="boton-confirmar" id="btn-confirmar">Confirmar Asistencia</a>    
+    </div> <div class="tarjeta animar-scroll" id="ceremonia">
+        <div class="subtitulo-evento">La Ceremonia</div>
+        <div class="hora">a las 12:00 hrs</div>
+        <p><strong>Lugar:</strong> Parroquia de San Juan Bautista, Trobajo del Camino</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d734.2984597674921!2d-5.604871029552282!3d42.59363071622852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd379b84a0ecddbd%3A0xf532ce64ba45bcd4!2sParroquia%20de%20San%20Juan%20Bautista!5e0!3m2!1ses!2ses!4v1773254057121!5m2!1ses!2ses" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Parroquia+de+San+Juan+Bautista,+Trobajo+del+Camino" target="_blank" class="boton-mapa"><i class="fa-solid fa-location-dot"></i> Cómo llegar a la Iglesia</a>
     </div>
+
+    <div class="tarjeta animar-scroll" id="celebracion">
+        <div class="subtitulo-evento">La Celebración</div>
+        <div class="hora">a las 14:00 hrs</div>
+        <p><strong>Lugar:</strong> Finca El Cigarral, Cembranos</p>
+        <iframe src="https://maps.google.com/maps?q=Finca%20El%20Cigarral,%20Cembranos&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius: 10px; margin-top: 10px; margin-bottom: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Finca+El+Cigarral,+Cembranos" target="_blank" class="boton-mapa"><i class="fa-solid fa-location-dot"></i> Cómo llegar a El Cigarral</a>
+    </div>
+
+    <div class="tarjeta animar-scroll" id="momentos">
+        <div class="subtitulo-evento">Nuestros Momentos</div>
+        <div class="carrusel-contenedor">
+            <div class="carrusel-slides" id="carrusel">
+                <div class="carrusel-slide"><img src="galeria1.jpg" alt="Momento 1"></div>
+                <div class="carrusel-slide"><img src="galeria2.jpg" alt="Momento 2"></div>
+                <div class="carrusel-slide"><img src="galeria3.jpg" alt="Momento 3"></div>
+            </div>
+            <button class="carrusel-btn prev" onclick="moverCarrusel(-1)">❮</button>
+            <button class="carrusel-btn next" onclick="moverCarrusel(1)">❯</button>
+            <div class="carrusel-puntos">
+                <span class="punto activo" onclick="irSlide(0)"></span>
+                <span class="punto" onclick="irSlide(1)"></span>
+                <span class="punto" onclick="irSlide(2)"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta animar-scroll" id="detalles">
+        <div class="info-item">
+            <i class="fa-solid fa-bus icono-extra"></i>
+            <div class="titulo-extra">Servicio de Autobús</div>
+            <p class="texto-extra">Para vuestra comodidad, pondremos a disposición un autobús que os llevará desde la iglesia hasta la finca, con regreso de madrugada. ¡Para que disfrutéis sin preocupaciones!</p>
+        </div>
+        <div class="info-item">
+            <i class="fa-solid fa-user-tie icono-extra"></i>
+            <div class="titulo-extra">Código de Vestimenta</div>
+            <p class="texto-extra">Formal / Traje oscuro y vestido largo o de cóctel.<br>
+            <i style="color: #a38d72; font-size: 0.9em; margin-top: 5px; display: block;">(Se ruega a las invitadas evitar el color blanco)</i></p>
+        </div>
+        <div class="info-item">
+            <i class="fa-solid fa-utensils icono-extra"></i>
+            <div class="titulo-extra">Alergias y Menús Especiales</div>
+            <p class="texto-extra">Rogamos nos indiquéis en el formulario de confirmación si tenéis alguna alergia, intolerancia o si necesitáis un menú especial (vegetariano, vegano, infantil...).</p>
+        </div>
+    </div>
+
+    <div class="tarjeta animar-scroll" id="regalos" style="background-color: #fcfbf9;">
+        <i class="fa-solid fa-gift icono-regalo"></i>
+        <p style="font-size: 1.05em; padding: 0;">El mejor regalo es poder compartir este día con vosotros. Pero si deseáis tener un detalle con nosotros, podéis hacerlo a través de este número de cuenta:</p>
+        <div class="iban-caja" id="numero-iban">ES12 3456 7890 1234 5678 9012</div>
+        <button class="boton-copiar" onclick="copiarIBAN()" id="btn-copiar"><i class="fa-regular fa-copy"></i> Copiar IBAN</button>
+    </div>
+
+    <p class="animar-scroll" style="margin-bottom: 40px; font-style: italic; color: #8b7355;">¡Esperamos contar contigo en este día tan especial!</p>
+    
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScKszyyh4QzKtyKjFX-o4V_w5jmp2A9A5qLm-JJ340iLzKYpw/viewform?usp=header" target="_blank" class="boton-confirmar" id="btn-confirmar">Confirmar Asistencia</a>    
 
     <script>
         // 1. CUENTA ATRÁS
@@ -633,9 +576,7 @@
                         observador.unobserve(entrada.target); 
                     }
                 });
-            }, {
-                threshold: 0.1 
-            });
+            }, { threshold: 0.1 });
 
             const elementosOcultos = document.querySelectorAll('.animar-scroll');
             elementosOcultos.forEach((el) => observador.observe(el));
@@ -649,9 +590,9 @@
         const totalSlides = slides.length;
 
         function actualizarCarrusel() {
-            carrusel.style.transform = `translateX(-${slideIndex * 100}%)`;
+            if(carrusel) carrusel.style.transform = `translateX(-${slideIndex * 100}%)`;
             puntos.forEach(p => p.classList.remove('activo'));
-            puntos[slideIndex].classList.add('activo');
+            if(puntos[slideIndex]) puntos[slideIndex].classList.add('activo');
         }
 
         function moverCarrusel(step) {
@@ -678,17 +619,7 @@
 
         // 6. DESCARGAR EVENTO PARA EL CALENDARIO (.ics)
         function descargarCalendario() {
-            const evento = `BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:Boda Marcos y Sara & Bautizo
-DTSTART:20260905T120000
-DTEND:20260906T040000
-LOCATION:Parroquia de San Juan Bautista, Trobajo del Camino
-DESCRIPTION:¡Nos hace muchísima ilusión celebrar juntos nuestra boda y el bautizo de Marcos!
-END:VEVENT
-END:VCALENDAR`;
-
+            const evento = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:Boda Marcos y Sara & Bautizo\nDTSTART:20260905T120000\nDTEND:20260906T040000\nLOCATION:Parroquia de San Juan Bautista, Trobajo del Camino\nDESCRIPTION:¡Nos hace muchísima ilusión celebrar juntos nuestra boda y el bautizo de Marcos!\nEND:VEVENT\nEND:VCALENDAR`;
             const blob = new Blob([evento], { type: 'text/calendar;charset=utf-8' });
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
@@ -702,31 +633,30 @@ END:VCALENDAR`;
         // 7. LÓGICA DE LA MÚSICA DE FONDO
         var reproductor = document.getElementById("musica-fondo");
         var btnMusica = document.getElementById("btn-musica");
-        var iconoMusica = btnMusica.querySelector("i");
+        var iconoMusica = btnMusica ? btnMusica.querySelector("i") : null;
         var estaSonando = false;
 
         function toggleMusica() {
             if (estaSonando) {
                 reproductor.pause();
-                iconoMusica.className = "fa-solid fa-music"; // Vuelve a poner la nota musical
-                btnMusica.classList.remove("animacion-girar"); // Para de girar
+                iconoMusica.className = "fa-solid fa-music"; 
+                btnMusica.classList.remove("animacion-girar"); 
             } else {
                 reproductor.play();
-                iconoMusica.className = "fa-solid fa-pause"; // Pone el icono de pausa
-                btnMusica.classList.add("animacion-girar"); // Empieza a girar
+                iconoMusica.className = "fa-solid fa-pause"; 
+                btnMusica.classList.add("animacion-girar"); 
             }
             estaSonando = !estaSonando;
         }  
         
-        // 8. TEMPORIZADOR DE LA PANTALLA DE CARGA (Independiente de los mapas)
+        // 8. TEMPORIZADOR DE LA PANTALLA DE CARGA 
         setTimeout(function() {
             var pantallaCarga = document.getElementById('pantalla-carga');
             if (pantallaCarga) {
                 pantallaCarga.classList.add('ocultar-carga');
-                // Devuelve el scroll a la página
                 document.body.classList.remove('sin-scroll');
             }
-        }, 2500); // 2,5 segundos exactos sin importar lo que tarden los mapas
+        }, 4000); 
         
     </script>
 </body>
