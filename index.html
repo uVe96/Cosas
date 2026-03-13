@@ -246,6 +246,7 @@
             letter-spacing: 1px;
             word-break: break-all;
         }
+        
         .boton-copiar {
             background-color: transparent;
             color: #8b7355;
@@ -259,6 +260,24 @@
         }
         .boton-copiar:hover { background-color: #8b7355; color: white; }
 
+        /* ESTILOS BOTÓN CALENDARIO */
+        .boton-calendario {
+            background-color: transparent;
+            color: #8b7355;
+            border: 1px solid #8b7355;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+            margin-bottom: 25px; /* Para separarlo de la cuenta atrás */
+        }
+        .boton-calendario:hover { 
+            background-color: #8b7355; 
+            color: white; 
+        }
+        
         /* ESTILOS DEL MENÚ DE NAVEGACIÓN */
         .menu-navegacion {
             display: flex;
@@ -343,7 +362,8 @@
         <div class="fecha">
             Sábado, 5 de Septiembre de 2026
         </div>  
-
+        <button class="boton-calendario" onclick="descargarCalendario()">📅 Añadir a mi Calendario</button>
+        
         <div class="contador-contenedor animar-scroll">
             <div class="contador-item">
                 <span class="contador-numero" id="dias">00</span>
@@ -529,6 +549,31 @@
                 botonConfirmar.classList.remove('mostrar');
             }
         });
+
+        // 6. DESCARGAR EVENTO PARA EL CALENDARIO (.ics)
+        function descargarCalendario() {
+            // Creamos los datos del evento (Formato universal)
+            const evento = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Boda Marcos y Sara & Bautizo
+DTSTART:20260905T120000
+DTEND:20260906T040000
+LOCATION:Parroquia de San Juan Bautista, Trobajo del Camino
+DESCRIPTION:¡Nos hace muchísima ilusión celebrar juntos nuestra boda y el bautizo de Marcos!
+END:VEVENT
+END:VCALENDAR`;
+
+            // Lo convertimos en un archivo descargable
+            const blob = new Blob([evento], { type: 'text/calendar;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'Boda_Marcos_y_Sara.ics');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }    
     </script>
 </body>
 </html>
